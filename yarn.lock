@@ -7163,13 +7163,6 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-grid-system@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/react-grid-system/-/react-grid-system-6.3.0.tgz#381210d969cc07c2249d298c5dffadba82080108"
-  integrity sha512-FqlL2evMx/Qb3QVH/2GUoutynpzI3kCJMGAtPlXos/iA9MKUgSXJiqvCDpygY6alCqkmjYRLcj5Rdwg5ImR/7Q==
-  dependencies:
-    prop-types "^15.7.2"
-
 react-is@16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
