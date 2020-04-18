@@ -13,9 +13,11 @@
     "next": "latest",
     "node-sass": "^4.13.1",
     "npm": "^6.14.4",
+    "rc-tooltip": "^4.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-grid-system": "^6.3.0",
+    "react-simple-maps": "^2.0.0",
     "swr": "^0.1.18"
   },
   "license": "ISC",

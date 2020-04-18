@@ -1,0 +1,34 @@
+.section {
+  padding-top: 50px;
+  path {
+    outline: none;
+  }
+}
+
+.title {
+  color: #3D3D3D;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subTitle {
+  font-size: 24px;
+  color: #7E7E7E;
+  margin-top: 20px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.map {
+  padding: 20px;
+}
+
+.marker {
+  cursor: pointer;
+  &:hover {
+    path  {
+      fill: rgb(20, 197, 159);
+    }
+  }
+}
