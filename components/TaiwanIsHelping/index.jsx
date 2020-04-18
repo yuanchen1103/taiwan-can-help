@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-grid-system';
 import Tooltip from 'rc-tooltip';
 import {
   ComposableMap,
@@ -24,13 +23,13 @@ const markers = [
 const TaiwanIsHelping = () => {
   return (
     <section className={styles.section}>
-      <Container>
-        <Row>
-          <Col md={8}>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8">
             <h1 className={styles.title}>TAIWAN IS HELPING</h1>
             <h2 className={styles.subTitle}>臺灣不只可以幫忙，而且正在幫忙</h2>
-          </Col>
-          <Col md={4}>
+          </div>
+          <div className="col-md-4">
             <div className={styles.infoWrapper}>
               <div className={styles.infoGroup}>
                 <h6>捐贈口罩數</h6>
@@ -41,10 +40,10 @@ const TaiwanIsHelping = () => {
                 <p>{thousandComma(32)}</p>
               </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
-      <Container fluid>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid">
         <ComposableMap>
           <Graticule stroke="#F9F9F9" />
           <Geographies
@@ -83,7 +82,7 @@ const TaiwanIsHelping = () => {
             </Tooltip>
           ))}
         </ComposableMap>
-      </Container>
+      </div>
     </section>
   );
 };

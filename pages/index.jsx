@@ -11,6 +11,7 @@ export default function Index() {
         <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/index.css" />
         <link rel="stylesheet" href="/styles/tooltip.css" />
+        <link rel="stylesheet" href="/styles/grid.css" />
       </Head>
       {/* <Example /> */}
       <TaiwanIsHelping />
