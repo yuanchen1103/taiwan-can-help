@@ -1,16 +1,16 @@
-import zh from '@/public/static/locales/zh';
-import en from '@/public/static/locales/en';
+import zhTW from '@/public/static/locales/zh-TW';
+import enUS from '@/public/static/locales/en-US';
 
 export const i18n = {
-  zh,
-  en
+  'zh-TW': zhTW,
+  'en-US': enUS
 };
 
 const getTranslate = langCode => key => i18n[langCode][key] || key;
 
 export const initialState = {
-  langCode: 'zh',
-  t: getTranslate('zh')
+  langCode: 'zh-TW',
+  t: getTranslate('zh-TW')
 };
 
 export const reducer = (state, action) => {
