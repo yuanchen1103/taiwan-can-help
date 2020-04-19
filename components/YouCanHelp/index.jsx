@@ -1,23 +1,46 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import numFormatter from '@/utils/numFormatter';
+import getter from '@/utils/getter';
+import poster from '@/utils/poster';
 import styles from './YouCanHelp.scss';
-import numFormatter from '../../utils/numFormatter';
 
-// eslint-disable-next-line arrow-body-style
+
 const YouCanHelp = () => {
+  const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    getter('/api/interaction').then((data) => {
+      setCount(data.value);
+      setIsLoading(false);
+    }).catch(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  const [clickCount, setClickCount] = useState(0);
+
   const [showAddOne, setShowAddOne] = useState(false);
+
+  const updateCount = useCallback(() => {
+    poster('/api/interaction', {});
+  }, []);
+
   const handleOnClick = useCallback(() => {
     setShowAddOne(true);
+    setClickCount((prev) => prev + 1);
     setTimeout(() => {
       setShowAddOne(false);
     }, 500);
+    updateCount();
   }, []);
+
   return (
     <section className={styles.section}>
       <h1 className={styles.title}>YOU CAN HELP</h1>
       <div className={styles.buttonWrapper}>
         <button className={styles.roundButton} type="button" onClick={handleOnClick}>
           <img src="/img/mask.svg" alt="mask-icon" />
-          {numFormatter(1300)}
+          {isLoading ? 'Loading...' : numFormatter(count + clickCount)}
         </button>
         <span
           className={styles.addOne}

@@ -16,5 +16,9 @@ module.exports = {
         "extensions": [".js", ".jsx", ".json"]
       }
     }
+  },
+  "env": {
+    "node": true,
+    "browser": true,
   }
 };
