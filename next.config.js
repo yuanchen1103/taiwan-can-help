@@ -3,8 +3,9 @@ const withSass = require('@zeit/next-sass');
 
 module.exports = withSass({
   cssModules: true,
-  webpack: config => {
+  webpack: (config) => {
+    // eslint-disable-next-line no-param-reassign
     config.resolve.alias['@'] = path.resolve(__dirname);
     return config;
-  }
+  },
 });

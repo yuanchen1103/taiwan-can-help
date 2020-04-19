@@ -19,6 +19,7 @@ export default async function redisClient(req, res, next) {
   req.redisGet = getAsync;
   req.redisSet = setAsync;
 
+  // eslint-disable-next-line no-console
   console.log('redis connected');
 
   return next();
