@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Head from 'next/head';
-import { I18nContext } from '../../i18n/I18nContext';
+import { I18nContext } from '@/i18n/I18nContext';
 
 const Header = () => {
   const { t } = useContext(I18nContext);
