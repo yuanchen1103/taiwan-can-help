@@ -6,7 +6,7 @@ Next.js ships with [API routes](https://github.com/zeit/next.js#api-routes), whi
 
 Deploy the example using [ZEIT Now](https://zeit.co/now):
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/zeit/next.js/tree/canary/examples/api-routes-rest)
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/yuanchen1103/taiwan-can-help)
 
 ## How to use
 
