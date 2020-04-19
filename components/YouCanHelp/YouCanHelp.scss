@@ -1,0 +1,41 @@
+.section {
+  padding: 50px 0;
+}
+
+.title {
+  color: #3D3D3D;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  @media (min-width: 576px) {
+    font-size: 50px;
+  }
+}
+
+.roundButton {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  text-align: center;
+  transition: all 0.4s;
+  cursor: pointer;
+  display: block;
+  margin: 50px auto;
+  font-size: 24px;
+  color: #7E7E7E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 30px #00000029;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  img {
+    margin-bottom: 20px;
+  }
+}
