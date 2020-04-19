@@ -19,6 +19,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-simple-maps": "^2.0.0",
+    "redis": "^3.0.2",
     "swr": "^0.1.18"
   },
   "license": "ISC",

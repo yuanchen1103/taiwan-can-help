@@ -6,7 +6,7 @@ const client = new MongoClient(url, {
   useUnifiedTopology: true,
 });
 
-export default async function database(req, res, next) {
+export default async function mongo(req, res, next) {
   if (!client.isConnected()) await client.connect();
   req.dbClient = client;
   req.db = client.db(process.env.NODE_ENV === 'production' ? 'production' : 'test');
