@@ -1,5 +1,5 @@
-import zhTW from '../public/static/locales/zh-TW/index.json';
-import enUS from '../public/static/locales/en-US/index.json';
+import zhTW from '@/public/static/locales/zh-TW/index.json';
+import enUS from '@/public/static/locales/en-US/index.json';
 
 export const i18n = {
   'zh-TW': zhTW,

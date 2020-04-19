@@ -7,4 +7,14 @@ module.exports = {
   "rules": {
     "strict": 0,
   },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./"]
+        ],
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
+  }
 };
