@@ -12,6 +12,12 @@
   }
 }
 
+.buttonWrapper {
+  position: relative;
+  width: fit-content;
+  margin: 50px auto;
+}
+
 .roundButton {
   width: 180px;
   height: 180px;
@@ -22,7 +28,6 @@
   transition: all 0.4s;
   cursor: pointer;
   display: block;
-  margin: 50px auto;
   font-size: 24px;
   color: #7E7E7E;
   display: flex;
@@ -31,8 +36,9 @@
   justify-content: center;
   box-shadow: 0px 0px 30px #00000029;
   transform: scale(1);
+  background-color: white;
   &:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
   }
 
   &:active {
@@ -42,4 +48,16 @@
   img {
     margin-bottom: 20px;
   }
+}
+
+.addOne {
+  padding: 4px 15px;
+  border-radius: 15px;
+  background-color: #0CCDA3;
+  color: white;
+  position: absolute;
+  font-size: 20px;
+  top: -9px;
+  right: 0px;
+  transition: all 0.2s ease-in;
 }
