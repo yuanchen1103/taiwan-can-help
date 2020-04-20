@@ -7,4 +7,7 @@ module.exports = {
   "rules": {
     "strict": 0,
   },
+  "globals": {
+    "window": true
+  }
 };
