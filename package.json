@@ -10,6 +10,7 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "i": "^0.3.6",
+    "lodash": "^4.17.15",
     "mongodb": "^3.5.6",
     "next": "latest",
     "next-connect": "^0.6.4",
@@ -19,8 +20,11 @@
     "rc-tooltip": "^4.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-id-swiper": "^3.0.0",
     "react-simple-maps": "^2.0.0",
-    "redis": "^3.0.2"
+    "redis": "^3.0.2",
+    "swiper": "^5.3.7",
+    "swr": "^0.1.18"
   },
   "license": "ISC",
   "devDependencies": {

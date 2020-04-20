@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 // import Example from '@/components/Example';
 import TaiwanIsHelping from '@/components/TaiwanIsHelping';
 import ICanHelp from '@/components/ICanHelp';
+import GovCanHelp from '@/components/GovCanHelp';
 import YouCanHelp from '@/components/YouCanHelp';
 import Footer from '@/components/Footer';
 
@@ -14,6 +15,7 @@ export default function Index() {
         <Header />
         {/* <Example /> */}
         <TaiwanIsHelping />
+        <GovCanHelp />
         <ICanHelp />
         <YouCanHelp />
         <Footer />

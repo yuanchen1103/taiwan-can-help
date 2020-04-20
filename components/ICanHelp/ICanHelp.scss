@@ -2,7 +2,7 @@ $black: #3D3D3D;
 $grey: #7E7E7E;
 
 .section {
-    padding-top: 50px;
+    padding: 50px 0 100px;
     overflow: hidden;
 }
 
@@ -29,6 +29,29 @@ $grey: #7E7E7E;
         font-size: 24px;
         line-height: 45px;
         margin-top: 54px;
-        text-align: left;
+    }
+}
+
+.swiperContainer {
+    margin: 109px 0 0 -60vw;
+    width: 220vw;
+    @media (min-width: 992px) {
+        margin: 109px 0 0 -5vw;
+        width: 110vw;
+    }
+}
+
+.swiperCard {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    & > img {
+        width: 100%;
+        height: 171px;
+        object-fit: cover;
+        object-position: center;
+        @media (min-width: 576px) {
+            height: 328px;
+        }
     }
 }
