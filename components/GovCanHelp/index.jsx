@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Swiper from 'react-id-swiper';
 import { debounce } from 'lodash';
+import { I18nContext } from '@/i18n/I18nContext';
 import styles from './GovCanHelp.scss';
 
 // 輪播連結
@@ -102,41 +103,40 @@ const Blockquote = () => {
   );
 };
 
-const GovCanHelp = () => (
-  <>
-    <section className={styles.section}>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 order-1 col-md-7 order-md-2">
-            <div className={styles.govCanHelpBackground} />
-          </div>
-          <div className="col-12 order-2 col-md-5 order-md-1 d-flex align-items-end flex-wrap">
-            <div className="container">
-              <div className="row mt-5">
-                <div className={`col-12 ${styles.title}`}>.gov</div>
-                <div className={`col-12 ${styles.subTitle}`}>CAN HELP</div>
-              </div>
-              <div className="row">
-                <h5 className={`col-12 p-0 ${styles.desciption}`}>
-                  臺灣政府樂於協助所有人
-                  <br />
-                  許多我們可以幫忙的資源都在這裡
-                </h5>
+const GovCanHelp = () => {
+  const { t } = useContext(I18nContext);
+  return (
+    <>
+      <section className={styles.section}>
+        <div className="container">
+          <div className="row">
+            <div className="col-12 order-1 col-md-7 order-md-2">
+              <div className={styles.govCanHelpBackground} />
+            </div>
+            <div className="col-12 order-2 col-md-5 order-md-1 d-flex align-items-end flex-wrap">
+              <div className="container">
+                <div className="row mt-5">
+                  <div className={`col-12 ${styles.title}`}>.gov</div>
+                  <div className={`col-12 ${styles.subTitle}`}>CAN HELP</div>
+                </div>
+                <div className="row">
+                  <h5 className={`col-12 p-0 ${styles.desciption}`}>{t('govCanHelpDesc')}</h5>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section className={styles.section}>
-      <div className={`container ${styles.carouselContainer}`}>
-        <Carousel />
-      </div>
-    </section>
-    <section className={styles.section}>
-      <Blockquote />
-    </section>
-  </>
-);
+      </section>
+      <section className={styles.section}>
+        <div className={`container ${styles.carouselContainer}`}>
+          <Carousel />
+        </div>
+      </section>
+      <section className={styles.section}>
+        <Blockquote />
+      </section>
+    </>
+  );
+};
 
 export default GovCanHelp;

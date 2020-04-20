@@ -10,6 +10,7 @@ export default async function mongo(req, res, next) {
   if (!client.isConnected()) await client.connect();
   req.dbClient = client;
   req.db = client.db(process.env.NODE_ENV === 'production' ? 'production' : 'test');
+  // eslint-disable-next-line no-console
   console.log('mongodb connected');
   return next();
 }
