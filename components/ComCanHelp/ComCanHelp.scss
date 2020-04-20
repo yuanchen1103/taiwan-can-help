@@ -1,0 +1,134 @@
+$black: #3D3D3D;
+$white: #FFFFFF;
+$grey: #7E7E7E;
+
+.section {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+// imitate SVG path
+.comCanHelpBackground {
+    position: absolute;
+    left: -10%;
+    top: 260px;
+    width: 120%;
+    height: 870px;
+    background: transparent linear-gradient(314deg, #0CCDA3 0%, #C1FCD3 100%) 0% 0%;
+    clip-path: polygon(42% 13%, 60% 36%, 89% 43%, 100% 70%, 70% 100%, 28% 90%, 0 97%, 0 0);
+    @media (min-width: 576px) {
+        height: 956px;
+    }
+    @media (min-width: 992px) {
+        top: 0;
+        right: 0;
+        width: 70%;
+    }
+}
+
+.colMarginTop {
+    margin-top: 106px;
+    @media (min-width: 992px) {
+        margin-top: 197px;
+    }
+}
+
+.zIndex1 { z-index: 1; }
+
+.title {
+    letter-spacing: 2.6px;
+    color: $black;
+    font-size: 74px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0.6em 0 0;
+    z-index: 1;
+    @media (min-width: 992px) {
+        text-align: left;
+        font-size: 104px;
+        padding: 0;
+    }
+}
+
+.subTitle {
+    letter-spacing: 1px;
+    color: $black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 0 0 0 2.2em;
+    z-index: 1;
+    white-space: nowrap; // check 768px on iPad
+    @media (min-width: 992px) {
+        font-size: 40px;
+        padding: 0 0 0 2.4em;
+        text-align: left;
+    }
+}
+
+.desciption {
+    text-align: center;
+    font-weight: lighter;
+    color: $grey;
+    font-size: 18px;
+    line-height: 31px;
+    margin-top: 30px;
+    white-space: break-spaces;
+    z-index: 1;
+    @media (min-width: 992px) {
+        font-size: 24px;
+        line-height: 45px;
+        margin-top: 54px;
+        text-align: left;
+    }
+}
+
+.cardBlock {
+    &:nth-child(3), &:nth-child(4) {
+        display: none;
+        @media (min-width: 576px) {
+            display: block;
+        }
+    }
+}
+
+.card {
+    border-radius: 12px;
+    background: $white;
+    width: 100%;
+    max-width: 255px;
+    box-shadow: 0px 0px 30px #00000029;
+    padding: 25px 24px;
+    margin: 20px auto;
+    z-index: 1;
+    @media (min-width: 576px) {
+        width: auto;
+        max-width: 100%;
+        margin: 20px 15px;
+    }
+}
+
+.cardPhoto {
+    width: 145px;
+    height: 145px;
+    background: #DBDBDB;
+    border-radius: 50%;
+    margin: 18px auto 0;
+}
+
+.cardTitle {
+    color: #555555;
+    font-size: 20px;
+    line-height: 45px;
+    margin: 18px auto 20px;
+    text-align: center;
+}
+
+.cardContent {
+    color: #707070;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+}
