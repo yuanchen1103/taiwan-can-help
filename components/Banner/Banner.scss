@@ -3,12 +3,12 @@
   height: 380px;
   overflow: hidden;
   position: relative;
-  background-color: #C1FCD3;
+  background: radial-gradient(#0CCDA3, #C1FCD3);
   @media (min-width: 576px) {
-    height: 850px;
+    height: 600px;
   }
   @media (min-width: 768px) {
-    height: 930px;
+    height: 600px;
   }
 }
 
