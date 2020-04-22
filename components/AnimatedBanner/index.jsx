@@ -13,17 +13,17 @@ const AnimatedBanner = () => {
     setTimeout(() => {
       setSelectedGroup(3);
     }, 8000);
-    // setTimeout(() => {
-    //   setSelectedGroup(4);
-    // }, 8000);
+    setTimeout(() => {
+      setSelectedGroup(4);
+    }, 12000);
   }, []);
   useEffect(() => {
-    // handleAnimated();
-    // setIntervalId(
-    //   setInterval(() => {
-    //     handleAnimated();
-    //   }, 12000),
-    // );
+    handleAnimated();
+    setIntervalId(
+      setInterval(() => {
+        handleAnimated();
+      }, 16000),
+    );
     return () => {
       clearInterval(intervalId);
     };
@@ -35,6 +35,7 @@ const AnimatedBanner = () => {
           {selectedGroup === 1 && <Group num={1} />}
           {selectedGroup === 2 && <Group num={2} />}
           {selectedGroup === 3 && <Group num={3} />}
+          {selectedGroup === 4 && <Group num={4} />}
         </div>
       </div>
     </section>
