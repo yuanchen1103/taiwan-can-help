@@ -36,6 +36,12 @@
     transform: none;
   }
 }
+.group3 {
+  transform: scale(0.6) translate(128px, 370px);
+  @media (min-width: 1200px) {
+    transform: none;
+  }
+}
 
 .imgShow {
   opacity: 1 !important;
@@ -72,4 +78,20 @@
   width: 150px;
   right: 400px;
   top: 140px;
+}
+
+.group31 {
+  width: 470px;
+  right: -30px;
+  top: 280px;
+}
+.group32 {
+  width: 160px;
+  right: 80px;
+  top: 169px;
+}
+.group33 {
+  width: 340px;
+  right: 280px;
+  top: 60px;
 }

@@ -6,23 +6,23 @@ const AnimatedBanner = () => {
   const [intervalId, setIntervalId] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const handleAnimated = useCallback(() => {
-    // setSelectedGroup(1);
-    // setTimeout(() => {
-    //   setSelectedGroup(2);
-    // }, 4000);
-    // setTimeout(() => {
-    //   setSelectedGroup(3);
-    // }, 8000);
+    setSelectedGroup(1);
+    setTimeout(() => {
+      setSelectedGroup(2);
+    }, 4000);
+    setTimeout(() => {
+      setSelectedGroup(3);
+    }, 8000);
     // setTimeout(() => {
     //   setSelectedGroup(4);
     // }, 8000);
   }, []);
   useEffect(() => {
-    handleAnimated();
+    // handleAnimated();
     // setIntervalId(
     //   setInterval(() => {
     //     handleAnimated();
-    //   }, 10000),
+    //   }, 12000),
     // );
     return () => {
       clearInterval(intervalId);
@@ -34,6 +34,7 @@ const AnimatedBanner = () => {
         <div className={styles.groupWrapper}>
           {selectedGroup === 1 && <Group num={1} />}
           {selectedGroup === 2 && <Group num={2} />}
+          {selectedGroup === 3 && <Group num={3} />}
         </div>
       </div>
     </section>
