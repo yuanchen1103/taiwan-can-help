@@ -6,15 +6,14 @@ const handler = nextConnect();
 handler.use(mongo);
 
 handler.get(async (req, res) => {
-  const docs = await req.db.collection('media').find({}, {
+  const docs = await req.db.collection('map').find({}, {
     _id: 0,
-    zhAssetContent: 1,
-    zhAssetOrganization: 1,
-    enAssetContent: 1,
-    enAssetOrganization: 1,
-    assetDate: 1,
+    zhAssetCountry: 1,
+    enAssetCountry: 1,
+    assetGeo: 1,
+    assetNum: 1,
     assetLink: 1,
-  }).sort({ assetDate: -1 }).toArray();
+  }).toArray();
 
   const data = {
     'zh-TW': [],
@@ -23,15 +22,15 @@ handler.get(async (req, res) => {
   docs.forEach((doc) => {
     data['zh-TW'].push({
       assetLink: doc.assetLink,
-      assetDate: doc.assetDate,
-      assetContent: doc.zhAssetContent,
-      assetOrganization: doc.zhAssetOrganization,
+      assetGeo: doc.assetGeo,
+      assetCountry: doc.zhAssetCountry,
+      assetNum: doc.assetNum,
     });
     data['en-US'].push({
       assetLink: doc.assetLink,
-      assetDate: doc.assetDate,
-      assetContent: doc.enAssetContent,
-      assetOrganization: doc.enAssetOrganization,
+      assetGeo: doc.assetGeo,
+      assetCountry: doc.enAssetCountry,
+      assetNum: doc.assetNum,
     });
   });
   res.json(data);
