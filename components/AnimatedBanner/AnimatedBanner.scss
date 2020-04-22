@@ -30,6 +30,12 @@
     transform: none;
   }
 }
+.group2 {
+  transform: scale(0.6) translate(128px, 370px);
+  @media (min-width: 1200px) {
+    transform: none;
+  }
+}
 
 .imgShow {
   opacity: 1 !important;
@@ -53,17 +59,17 @@
 }
 
 .group21 {
-  width: 680px;
-  right: -120px;
-  top: 180px;
+  width: 740px;
+  right: -100px;
+  top: 120px;
 }
 .group22 {
-  width: 100px;
-  right: -70px;
-  top: 70px;
+  width: 160px;
+  right: 80px;
+  top: 220px;
 }
 .group23 {
-  width: 100px;
-  right: -150px;
-  top: 400px;
+  width: 150px;
+  right: 400px;
+  top: 140px;
 }

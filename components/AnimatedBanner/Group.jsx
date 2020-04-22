@@ -30,7 +30,7 @@ const Group = ({ num }) => {
     }, 3500);
   }, []);
   useEffect(() => {
-    // handleAnimated();
+    handleAnimated();
   }, []);
   return (
     <div className={styles[`group${num}`]}>
