@@ -10,12 +10,14 @@ export default async function redisClient(req, res, next) {
   const client = redis.createClient({
     port: redisPort,
     host: redisHost,
+    no_ready_check: true,
   });
   const authAsync = promisify(client.auth).bind(client);
   await authAsync(redisAuth);
   const getAsync = promisify(client.get).bind(client);
   const setAsync = promisify(client.set).bind(client);
 
+  req.redisClient = client;
   req.redisGet = getAsync;
   req.redisSet = setAsync;
 
