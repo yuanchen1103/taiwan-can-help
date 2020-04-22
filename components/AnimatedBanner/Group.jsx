@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import cx from 'classnames';
+import PropType from 'prop-types';
 import styles from './AnimatedBanner.scss';
 
-const Group1 = () => {
+const Group = ({ num }) => {
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
   const img3Ref = useRef(null);
@@ -29,15 +30,34 @@ const Group1 = () => {
     }, 3500);
   }, []);
   useEffect(() => {
-    handleAnimated();
+    // handleAnimated();
   }, []);
   return (
-    <>
-      <img ref={img1Ref} className={cx(styles.group11, 'animated')} src="/img/1-1.png" alt="" />
-      <img ref={img2Ref} className={cx(styles.group12, 'animated')} src="/img/1-2.png" alt="" />
-      <img ref={img3Ref} className={cx(styles.group13, 'animated')} src="/img/1-3.png" alt="" />
-    </>
+    <div className={styles[`group${num}`]}>
+      <img
+        ref={img1Ref}
+        className={cx(styles[`group${num}1`], 'animated')}
+        src={`/img/${num}-1.png`}
+        alt=""
+      />
+      <img
+        ref={img2Ref}
+        className={cx(styles[`group${num}2`], 'animated')}
+        src={`/img/${num}-2.png`}
+        alt=""
+      />
+      <img
+        ref={img3Ref}
+        className={cx(styles[`group${num}3`], 'animated')}
+        src={`/img/${num}-3.png`}
+        alt=""
+      />
+    </div>
   );
 };
 
-export default Group1;
+Group.propTypes = {
+  num: PropType.number.isRequired,
+};
+
+export default Group;

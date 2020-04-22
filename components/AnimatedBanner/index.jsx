@@ -1,15 +1,21 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import styles from './AnimatedBanner.scss';
-import Group1 from './Group1';
+import Group from './Group';
 
 const AnimatedBanner = () => {
   const [intervalId, setIntervalId] = useState(null);
-  const [showGroup1, setShowGroup1] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState(null);
   const handleAnimated = useCallback(() => {
-    setShowGroup1(true);
-    setTimeout(() => {
-      setShowGroup1(false);
-    }, 4000);
+    setSelectedGroup(1);
+    // setTimeout(() => {
+    //   setSelectedGroup(2);
+    // }, 4000);
+    // setTimeout(() => {
+    //   setSelectedGroup(3);
+    // }, 8000);
+    // setTimeout(() => {
+    //   setSelectedGroup(4);
+    // }, 8000);
   }, []);
   useEffect(() => {
     handleAnimated();
@@ -24,8 +30,10 @@ const AnimatedBanner = () => {
   }, []);
   return (
     <section className={styles.section}>
-      <div className="container">
-        <div className={styles.groupWrapper}>{showGroup1 && <Group1 />}</div>
+      <div className={styles.container}>
+        <div className={styles.groupWrapper}>
+          {selectedGroup === 1 && <Group num={1} />}
+        </div>
       </div>
     </section>
   );
