@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import styles from './AnimatedBanner.scss';
 import Group from './Group';
+import Word from './Word';
 
 const AnimatedBanner = () => {
   const [intervalId, setIntervalId] = useState(null);
@@ -31,6 +32,13 @@ const AnimatedBanner = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
+        <div className={styles.fontWrapper}>
+          {selectedGroup === 1 && <Word num={1} />}
+          {selectedGroup === 2 && <Word num={2} />}
+          {selectedGroup === 3 && <Word num={3} />}
+          {selectedGroup === 4 && <Word num={4} />}
+          <img className={styles.canHelp} src="/img/can-help-font.png" alt="" />
+        </div>
         <div className={styles.groupWrapper}>
           {selectedGroup === 1 && <Group num={1} />}
           {selectedGroup === 2 && <Group num={2} />}

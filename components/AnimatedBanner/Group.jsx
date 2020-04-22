@@ -20,7 +20,6 @@ const Group = ({ num }) => {
     }, 500);
     setTimeout(() => {
       el1.classList.add('zoomOut');
-      el1.classList.add('zoomOut');
     }, 3000);
     setTimeout(() => {
       el2.classList.add('zoomOut');
