@@ -112,7 +112,13 @@ $green: #0CCDA3;
     -webkit-box-orient: vertical;
 }
 
-.blockquote {
+.width100 { width: 100%; }
+
+.mediaAssetContainer {
+    height: 500px;
+}
+
+.mediaAsset {
     padding: 4px 0;
     margin: 15px auto;
     width: 100%;
@@ -132,7 +138,6 @@ $green: #0CCDA3;
     &::before {
         content: '';
         width: 7px;
-        height: 100%;
         background: $green;
         display: inline-block;
         margin: 0 10px;

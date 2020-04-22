@@ -148,7 +148,7 @@
   outline: 0;
   position: absolute;
   top: -10%;
-  width: 300px;
+  width: 50vw;
   height: 120%;
   background: #FFFFFF;
   z-index: 10;
@@ -165,11 +165,13 @@
 }
 
 .swiper-button-prev {
-  margin-left: -330px;
+  margin-left: -50vw;
+  left: -15px;
 }
 
 .swiper-button-next {
-  margin-right: -330px;
+  margin-right: -50vw;
+  right: -15px;
 }
 
 .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
@@ -182,7 +184,6 @@
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-  left: 15px;
   right: auto; }
   .swiper-button-prev::after, .swiper-container-rtl .swiper-button-next::after {
     content: "";
@@ -199,7 +200,6 @@
     opacity: 1; }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
-  right: 15px;
   left: auto; }
   .swiper-button-next::after, .swiper-container-rtl .swiper-button-prev::after {
     content: "";

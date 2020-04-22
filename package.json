@@ -20,6 +20,7 @@
     "rc-tooltip": "^4.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-flip-move": "^3.0.4",
     "react-id-swiper": "^3.0.0",
     "react-simple-maps": "^2.0.0",
     "redis": "^3.0.2",
