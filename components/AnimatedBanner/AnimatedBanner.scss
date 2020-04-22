@@ -1,0 +1,32 @@
+.section {
+  height: 680px;
+  overflow: hidden;
+}
+
+.groupWrapper {
+  position: relative;
+  img {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.imgShow {
+  opacity: 1 !important;
+}
+
+.group11 {
+  width: 680px;
+  right: -120px;
+  top: 180px;
+}
+.group12 {
+  width: 100px;
+  right: -70px;
+  top: 70px;
+}
+.group13 {
+  width: 100px;
+  right: -150px;
+  top: 400px;
+}
