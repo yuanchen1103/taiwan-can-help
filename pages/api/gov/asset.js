@@ -15,25 +15,27 @@ handler.get(async (req, res) => {
     assetPhotoUrl: 1,
     assetLink: 1,
   }).toArray();
-  const data = {
-    'zh-TW': [],
-    'en-US': [],
-  };
-  docs.forEach((doc) => {
-    data['zh-TW'].push({
-      assetLink: doc.assetLink,
-      assetPhotoUrl: doc.assetPhotoUrl,
-      assetName: doc.zhAssetName,
-      assetIntro: doc.zhAssetIntro,
+  const data = [];
+  if (req.headers['accept-language'] === 'zh-TW') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetPhotoUrl: doc.assetPhotoUrl,
+        assetName: doc.zhAssetName,
+        assetIntro: doc.zhAssetIntro,
+      });
     });
-    data['en-US'].push({
-      assetLink: doc.assetLink,
-      assetPhotoUrl: doc.assetPhotoUrl,
-      assetName: doc.enAssetName,
-      assetIntro: doc.enAssetIntro,
+  } else if (req.headers['accept-language'] === 'en-US') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetPhotoUrl: doc.assetPhotoUrl,
+        assetName: doc.enAssetName,
+        assetIntro: doc.enAssetIntro,
+      });
     });
-  });
-  res.json(data);
+  }
+  res.json({ govAssetList: data });
 });
 
 export default handler;

@@ -15,25 +15,27 @@ handler.get(async (req, res) => {
     assetLink: 1,
   }).toArray();
 
-  const data = {
-    'zh-TW': [],
-    'en-US': [],
-  };
-  docs.forEach((doc) => {
-    data['zh-TW'].push({
-      assetLink: doc.assetLink,
-      assetGeo: doc.assetGeo,
-      assetCountry: doc.zhAssetCountry,
-      assetNum: doc.assetNum,
+  const data = [];
+  if (req.headers['accept-language'] === 'zh-TW') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetGeo: doc.assetGeo,
+        assetCountry: doc.zhAssetCountry,
+        assetNum: doc.assetNum,
+      });
     });
-    data['en-US'].push({
-      assetLink: doc.assetLink,
-      assetGeo: doc.assetGeo,
-      assetCountry: doc.enAssetCountry,
-      assetNum: doc.assetNum,
+  } else if (req.headers['accept-language'] === 'en-US') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetGeo: doc.assetGeo,
+        assetCountry: doc.enAssetCountry,
+        assetNum: doc.assetNum,
+      });
     });
-  });
-  res.json(data);
+  }
+  res.json({ mapAssetList: data });
 });
 
 export default handler;

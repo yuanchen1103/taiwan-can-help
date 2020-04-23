@@ -14,23 +14,25 @@ handler.get(async (req, res) => {
     enAssetOrganization: 1,
     assetPhotoUrl: 1,
   }).toArray();
-  const data = {
-    'zh-TW': [],
-    'en-US': [],
-  };
-  docs.forEach((doc) => {
-    data['zh-TW'].push({
-      assetPhotoUrl: doc.assetPhotoUrl,
-      assetContent: doc.zhAssetContent,
-      assetOrganization: doc.zhAssetOrganization,
+  const data = [];
+  if (req.headers['accept-language'] === 'zh-TW') {
+    docs.forEach((doc) => {
+      data.push({
+        assetPhotoUrl: doc.assetPhotoUrl,
+        assetContent: doc.zhAssetContent,
+        assetOrganization: doc.zhAssetOrganization,
+      });
     });
-    data['en-US'].push({
-      assetPhotoUrl: doc.assetPhotoUrl,
-      assetContent: doc.enAssetContent,
-      assetOrganization: doc.enAssetOrganization,
+  } else if (req.headers['accept-language'] === 'en-US') {
+    docs.forEach((doc) => {
+      data.push({
+        assetPhotoUrl: doc.assetPhotoUrl,
+        assetContent: doc.enAssetContent,
+        assetOrganization: doc.enAssetOrganization,
+      });
     });
-  });
-  res.json(data);
+  }
+  res.json({ comAssetList: data });
 });
 
 export default handler;
