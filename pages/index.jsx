@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes, { shape, number } from 'prop-types';
+import { shape, number } from 'prop-types';
+import absoluteUrl from 'next-absolute-url';
 import { I18nProvider } from '@/i18n/I18nContext';
 import Header from '@/components/Header';
 import TaiwanIsHelping from '@/components/TaiwanIsHelping';
@@ -11,7 +12,7 @@ import getter from '@/utils/getter';
 
 async function getInteractionCount(host) {
   try {
-    const interaction = await getter(`${host}api/interaction`);
+    const interaction = await getter(`${host}/api/interaction`);
     return interaction.value || 0;
   } catch {
     return 0;
@@ -20,7 +21,7 @@ async function getInteractionCount(host) {
 
 async function getMapData(host) {
   try {
-    const mapData = await getter(`${host}api/map/asset`);
+    const mapData = await getter(`${host}/api/map/asset`);
     return mapData;
   } catch {
     return {};
@@ -46,10 +47,10 @@ Index.propTypes = {
 };
 
 Index.getInitialProps = async ({ req }) => {
-  const host = req.headers.referer;
+  const { origin } = absoluteUrl(req);
   const [interactionCount, mapData] = await Promise.all([
-    getInteractionCount(host),
-    getMapData(host),
+    getInteractionCount(origin),
+    getMapData(origin),
   ]);
   return { interactionCount, mapData };
 };
