@@ -1,0 +1,145 @@
+.section {
+  height: 600px;
+  overflow: hidden;
+
+  @media (min-width: 1200px) {
+    height: 680px;
+  }
+}
+
+.container {
+  width: 320px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+}
+
+.groupWrapper {
+  img {
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.fontWrapper {
+  img {
+    position: absolute;
+  }
+}
+
+.animatedWord {
+  transform: scale(0.8) translate(-160px, -171px);
+  z-index: 5;
+  @media (min-width: 1200px) {
+    transform: none;
+  }
+  img {
+    width: 270px;
+    top: 245px;
+    left: 50px;
+  }
+
+}
+
+.canHelp {
+  transform: scale(0.8) translate(-190px, -270px);
+  width: 380px;
+  top: 340px;
+  left: 140px;
+  z-index: -1;
+
+  @media (min-width: 1200px) {
+    transform: none;
+  }
+}
+
+.group1,
+.group2,
+.group3,
+.group4 {
+  transform: scale(0.6) translate(128px, 370px);
+
+  @media (min-width: 1200px) {
+    transform: none;
+  }
+}
+
+.imgShow {
+  opacity: 1 !important;
+}
+
+.group11 {
+  width: 680px;
+  top: 180px;
+  right: -60px;
+}
+
+.group12 {
+  width: 100px;
+  right: 15px;
+  top: 100px;
+}
+
+.group13 {
+  width: 100px;
+  right: -55px;
+  top: 410px;
+}
+
+.group21 {
+  width: 740px;
+  right: -100px;
+  top: 120px;
+}
+
+.group22 {
+  width: 160px;
+  right: 80px;
+  top: 220px;
+}
+
+.group23 {
+  width: 150px;
+  right: 400px;
+  top: 140px;
+}
+
+.group31 {
+  width: 470px;
+  right: -30px;
+  top: 280px;
+}
+
+.group32 {
+  width: 160px;
+  right: 80px;
+  top: 169px;
+}
+
+.group33 {
+  width: 340px;
+  right: 280px;
+  top: 60px;
+}
+
+.group41 {
+  width: 422px;
+  right: 270px;
+  top: 150px;
+}
+
+.group42 {
+  width: 600px;
+  right: -10px;
+  top: 439px;
+}
+
+.group43 {
+  width: 340px;
+  right: -70px;
+  top: -40px;
+}
