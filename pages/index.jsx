@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import Banner from '@/components/Banner';
 import AnimatedBanner from '@/components/AnimatedBanner';
 import getter from '@/utils/getter';
+import mapMockData from '@/mockData/map';
 
 async function getInteractionCount(host) {
   try {
@@ -21,10 +22,14 @@ async function getInteractionCount(host) {
 
 async function getMapData(host) {
   try {
-    const mapData = await getter(`${host}/api/map/asset`);
+    const mapData = await getter(`${host}/api/map/asset`, {
+      headers: {
+        'Accept-Language': 'zh-TW',
+      },
+    });
     return mapData;
   } catch {
-    return {};
+    return mapMockData;
   }
 }
 
