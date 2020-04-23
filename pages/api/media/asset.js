@@ -16,25 +16,27 @@ handler.get(async (req, res) => {
     assetLink: 1,
   }).sort({ assetDate: -1 }).toArray();
 
-  const data = {
-    'zh-TW': [],
-    'en-US': [],
-  };
-  docs.forEach((doc) => {
-    data['zh-TW'].push({
-      assetLink: doc.assetLink,
-      assetDate: doc.assetDate,
-      assetContent: doc.zhAssetContent,
-      assetOrganization: doc.zhAssetOrganization,
+  const data = [];
+  if (req.headers['accept-language'] === 'zh-TW') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetDate: doc.assetDate,
+        assetContent: doc.zhAssetContent,
+        assetOrganization: doc.zhAssetOrganization,
+      });
     });
-    data['en-US'].push({
-      assetLink: doc.assetLink,
-      assetDate: doc.assetDate,
-      assetContent: doc.enAssetContent,
-      assetOrganization: doc.enAssetOrganization,
+  } else if (req.headers['accept-language'] === 'en-US') {
+    docs.forEach((doc) => {
+      data.push({
+        assetLink: doc.assetLink,
+        assetDate: doc.assetDate,
+        assetContent: doc.enAssetContent,
+        assetOrganization: doc.enAssetOrganization,
+      });
     });
-  });
-  res.json(data);
+  }
+  res.json({ mediaAssetList: data });
 });
 
 export default handler;
