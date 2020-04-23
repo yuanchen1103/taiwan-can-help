@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { shape, number } from 'prop-types';
 import { I18nProvider } from '@/i18n/I18nContext';
 import Header from '@/components/Header';
 import TaiwanIsHelping from '@/components/TaiwanIsHelping';
@@ -9,13 +9,31 @@ import Banner from '@/components/Banner';
 import AnimatedBanner from '@/components/AnimatedBanner';
 import getter from '@/utils/getter';
 
-export default function Index({ interactionCount }) {
+async function getInteractionCount(host) {
+  try {
+    const interaction = await getter(`${host}api/interaction`);
+    return interaction.value || 0;
+  } catch {
+    return 0;
+  }
+}
+
+async function getMapData(host) {
+  try {
+    const mapData = await getter(`${host}api/map/asset`);
+    return mapData;
+  } catch {
+    return {};
+  }
+}
+
+export default function Index({ interactionCount, mapData }) {
   return (
     <I18nProvider>
       <Banner />
       <AnimatedBanner />
       <Header />
-      <TaiwanIsHelping />
+      <TaiwanIsHelping mapData={mapData} />
       <YouCanHelp interactionCount={interactionCount} />
       <Footer />
     </I18nProvider>
@@ -23,16 +41,15 @@ export default function Index({ interactionCount }) {
 }
 
 Index.propTypes = {
-  interactionCount: PropTypes.number.isRequired,
+  interactionCount: number.isRequired,
+  mapData: shape().isRequired,
 };
 
 Index.getInitialProps = async ({ req }) => {
   const host = req.headers.referer;
-  let interaction;
-  try {
-    interaction = await getter(`${host}api/interaction`);
-  } catch {
-    interaction = { value: 0 };
-  }
-  return { interactionCount: interaction.value };
+  const [interactionCount, mapData] = await Promise.all([
+    getInteractionCount(host),
+    getMapData(host),
+  ]);
+  return { interactionCount, mapData };
 };
