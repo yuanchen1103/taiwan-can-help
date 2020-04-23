@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Tooltip from 'rc-tooltip';
 import {
   ComposableMap,
@@ -8,20 +8,17 @@ import {
   Marker,
 } from 'react-simple-maps';
 import { shape } from 'prop-types';
+import numFormatter from '@/utils/numFormatter';
 import thousandComma from '@/utils/thousandComma';
 import styles from './TaiwanIsHelping.scss';
 import geoUrl from './geo.json';
 
-const markers = [
-  {
-    coordinates: [120, 23.5],
-    name: '台灣',
-    count: 12000,
-  },
-];
-
 const TaiwanIsHelping = ({ mapData }) => {
-  console.log(mapData);
+  const maskTotalCount = useMemo(
+    () => mapData.mapAssetList.reduce((accumulate, current) => accumulate + current.assetNum, 0),
+    [mapData],
+  );
+  const countryTotalCount = useMemo(() => mapData.mapAssetList.length, [mapData]);
   return (
     <section className={styles.section}>
       <div className="container">
@@ -34,11 +31,11 @@ const TaiwanIsHelping = ({ mapData }) => {
             <div className={styles.infoWrapper}>
               <div className={styles.infoGroup}>
                 <h6>捐贈口罩數</h6>
-                <p>{thousandComma(1000)}</p>
+                <p>{numFormatter(maskTotalCount)}</p>
               </div>
               <div className={styles.infoGroup}>
-                <h6>捐贈國家數</h6>
-                <p>{thousandComma(32)}</p>
+                <h6>國家數</h6>
+                <p>{thousandComma(countryTotalCount)}</p>
               </div>
             </div>
           </div>
@@ -60,25 +57,35 @@ const TaiwanIsHelping = ({ mapData }) => {
               ));
             }}
           </Geographies>
-          {markers.map(({ coordinates, name, count }) => (
+          {mapData.mapAssetList.map(({
+            assetLink,
+            assetGeo,
+            assetCountry,
+            assetNum,
+          }) => (
             <Tooltip
-              key={name}
+              key={assetCountry}
               placement="top"
-              overlay={`${name}: ${thousandComma(count)}`}
+              overlay={`${assetCountry}: ${thousandComma(assetNum)}`}
             >
-              <Marker coordinates={coordinates} className={styles.marker}>
-                <g
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  transform="translate(-12, -24)"
-                >
-                  <path
-                    d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"
-                    fill="#0ccda3"
-                  />
-                  <circle cx="12" cy="10" r="3" fill="#ffffff" />
-                </g>
+              <Marker
+                coordinates={assetGeo.reverse()}
+                className={styles.marker}
+              >
+                <a href={assetLink} target="blank">
+                  <g
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    transform="translate(-12, -24)"
+                  >
+                    <path
+                      d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"
+                      fill="#0ccda3"
+                    />
+                    <circle cx="12" cy="10" r="3" fill="#ffffff" />
+                  </g>
+                </a>
               </Marker>
             </Tooltip>
           ))}
