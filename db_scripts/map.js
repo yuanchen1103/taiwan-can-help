@@ -13,13 +13,12 @@ const client = new MongoClient(url, {
   try {
     if (!client.isConnected()) await client.connect();
     const db = client.db(process.env.NODE_ENV === 'production' ? 'production' : 'test');
+    // await db.collection('map').drop();
     const workbook = XLSX.readFile(path.join(__dirname, 'data.xlsx'));
     const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
     data.forEach((val, id) => {
       if (id !== 0 && val['__EMPTY_1'] === '口罩' && val['__EMPTY_3'] === '片') {
-        insertDocs.push({
-          zhAssetCountry: val['口罩捐贈資料'],
-          enAssetCountry: val['口罩捐贈資料'],
+        const doc = {
           assetGeo: [
             val['__EMPTY'].split('°')[1][0] === 'N'
               ? parseFloat(val['__EMPTY'].split('°')[0])
@@ -30,11 +29,22 @@ const client = new MongoClient(url, {
           ],
           assetNum: val['__EMPTY_2'],
           assetLink: val['__EMPTY_4'],
+        };
+        insertDocs.push({
+          'zh-TW': {
+            assetCountry: val['口罩捐贈資料'],
+            ...doc,
+          },
+          'en-US': {
+            assetCountry: val['口罩捐贈資料'],
+            ...doc,
+          },
         });
       }
     });
-    insertDocs[1].assetNum += insertDocs[2].assetNum;
-    insertDocs[1].zhAssetCountry = insertDocs[1].enAssetCountry = '歐盟';
+    insertDocs[1]['zh-TW'].assetNum += insertDocs[2]['zh-TW'].assetNum;
+    insertDocs[1]['en-US'].assetNum += insertDocs[2]['en-US'].assetNum;
+    insertDocs[1]['zh-TW'].assetCountry = insertDocs[1]['en-US'].assetCountry = '歐盟';
     insertDocs.splice(2, 1);
     await db.collection('map').insertMany(insertDocs);
   } catch (e) {
