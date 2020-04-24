@@ -131,6 +131,7 @@ $green: #0CCDA3;
     line-height: 30px;
     font-size: 18px;
     & a {
+        width: 100%;
         color: $lightGrey;
         &:hover {
             color: $green;
