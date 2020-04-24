@@ -4,7 +4,10 @@ import React, {
   useEffect,
   forwardRef,
 } from 'react';
-import PropTypes from 'prop-types';
+import {
+  arrayOf,
+  shape,
+} from 'prop-types';
 import { debounce } from 'lodash';
 import FlipMove from 'react-flip-move';
 import Swiper from 'react-id-swiper';
@@ -12,7 +15,7 @@ import { I18nContext } from '@/i18n/I18nContext';
 import styles from './GovCanHelp.scss';
 
 // 輪播連結
-const Carousel = () => {
+const Carousel = ({ govAssetList = [] }) => {
   // 依照螢幕尺寸顯示每列顯示數量
   const [slidesPerView, setSlidesPerView] = useState();
   // 依照螢幕尺寸顯示3種顯示排版
@@ -50,44 +53,25 @@ const Carousel = () => {
       activeSlideKey={slidesPerView === 3 ? null : '2'} // 在768px以下的螢幕尺寸時會自動更新為從第二項目開始，大於768px以上則從第一項開始
       rebuildOnUpdate
     >
-      <div className={`${styles.card}`}>
-        <div className={styles.swiperImage} />
-        <div className={styles.cardBlock}>
-          <div className={styles.cardTitle}>口罩地圖2.0</div>
-          <div className={styles.cardSubTitle}>
-            自什務條民教事表類時加太。與全打年文起縣環前候吃住究燈灣：死配花智景半對一快布成小那麼對。死配花智景半對一快布成小那麼對。
+      {govAssetList.map((govAsset, index) => (
+        <a key={index.toString()} href={govAsset.assetLink} target="_blank" rel="noopener noreferrer">
+          <div className={`${styles.card}`}>
+            <div className={styles.swiperImage}>
+              <img src={govAsset.assetPhotoUrl} alt="govAsset.assetTitle" />
+            </div>
+            <div className={styles.cardBlock}>
+              <div className={styles.cardTitle}>{govAsset.assetTitle}</div>
+              <div className={styles.cardSubTitle}>{govAsset.assetIntro}</div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div key="2" className={`${styles.card}`}>
-        <div className={styles.swiperImage} />
-        <div className={styles.cardBlock}>
-          <div className={styles.cardTitle}>口罩地圖2.0</div>
-          <div className={styles.cardSubTitle}>
-            自什務條民教事表類時加太。與全打年文起縣環前候吃住究燈灣：死配花智景半對一快布成小那麼對。死配花智景半對一快布成小那麼對。
-          </div>
-        </div>
-      </div>
-      <div className={`${styles.card}`}>
-        <div className={styles.swiperImage} />
-        <div className={styles.cardBlock}>
-          <div className={styles.cardTitle}>口罩地圖2.0</div>
-          <div className={styles.cardSubTitle}>
-            自什務條民教事表類時加太。與全打年文起縣環前候吃住究燈灣：死配花智景半對一快布成小那麼對。
-          </div>
-        </div>
-      </div>
-      <div className={`${styles.card}`}>
-        <div className={styles.swiperImage} />
-        <div className={styles.cardBlock}>
-          <div className={styles.cardTitle}>口罩地圖2.0</div>
-          <div className={styles.cardSubTitle}>
-            自什務條民教事表類時加太。與全打年文起縣環前候吃住究燈灣：死配花智景半對一快布成小那麼對。
-          </div>
-        </div>
-      </div>
+        </a>
+      ))}
     </Swiper>
   );
+};
+
+Carousel.propTypes = {
+  govAssetList: arrayOf(shape()).isRequired,
 };
 
 const MediaAsset = forwardRef(({ mediaAsset }, ref) => (
@@ -102,54 +86,17 @@ const MediaAsset = forwardRef(({ mediaAsset }, ref) => (
 ));
 
 MediaAsset.propTypes = {
-  mediaAsset: PropTypes.objectOf(PropTypes.string).isRequired,
+  mediaAsset: shape().isRequired,
 };
 
 
-const MediaAssetList = () => {
-  const mockList = [
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口罩產',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報1',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報2',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口罩產量加速成長',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報3',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口罩產量加速成長',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報4',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口罩產量加速成長',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報5',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-    {
-      assetContent: '成為口罩國家隊，提供工具機專業技術，使得我國口罩產量加速成長',
-      assetDate: '2020/03/28',
-      assetOrganization: '紐約時報6',
-      assetLink: 'https://taiwancanhelp.us/',
-    },
-  ];
-  const [mediaAssetList, setMediaAssetList] = useState(mockList);
+const MediaAssetList = ({ mediaAssetList = [] }) => {
+  const addKeyAssetList = mediaAssetList.map((asset, key) => ({ ...asset, key: key.toString() }));
+  const [assetList, setAssetList] = useState(addKeyAssetList);
   const setintervalAnimation = () => {
     setTimeout(() => {
-      mediaAssetList.push(mediaAssetList.splice(0, 1)[0]);
-      setMediaAssetList([...mediaAssetList]);
+      assetList.push(assetList.splice(0, 1)[0]);
+      setAssetList([...assetList]);
       setintervalAnimation();
     }, 3000);
   };
@@ -160,8 +107,8 @@ const MediaAssetList = () => {
     <div className="container">
       <div className={`d-flex align-items-center justify-content-center ${styles.mediaAssetContainer}`}>
         <FlipMove className={styles.width100}>
-          {mediaAssetList.map((mediaAsset, index) => index < 4 && (
-            <MediaAsset key={mediaAsset.assetOrganization} mediaAsset={mediaAsset} />
+          {assetList.map((mediaAsset, index) => index < 4 && (
+            <MediaAsset key={mediaAsset.key} mediaAsset={mediaAsset} />
           ))}
         </FlipMove>
       </div>
@@ -169,7 +116,11 @@ const MediaAssetList = () => {
   );
 };
 
-const GovCanHelp = () => {
+MediaAssetList.propTypes = {
+  mediaAssetList: arrayOf(shape()).isRequired,
+};
+
+const GovCanHelp = ({ govAssetList = [], mediaAssetList = [] }) => {
   const { t } = useContext(I18nContext);
   return (
     <>
@@ -177,7 +128,9 @@ const GovCanHelp = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 order-1 col-md-7 order-md-2">
-              <div className={styles.govCanHelpBackground} />
+              <div className={styles.govCanHelpBackground}>
+                <img src="/img/gov-can-help-bg.svg" alt="" />
+              </div>
             </div>
             <div className="col-12 order-2 col-md-5 order-md-1 d-flex align-items-end flex-wrap">
               <div className="container">
@@ -195,14 +148,19 @@ const GovCanHelp = () => {
       </section>
       <section className={styles.section}>
         <div className={`container ${styles.carouselContainer}`}>
-          <Carousel />
+          {!!govAssetList.length && <Carousel govAssetList={govAssetList} />}
         </div>
       </section>
       <section className={styles.section}>
-        <MediaAssetList />
+        {!!mediaAssetList.length && <MediaAssetList mediaAssetList={mediaAssetList} />}
       </section>
     </>
   );
+};
+
+GovCanHelp.propTypes = {
+  govAssetList: arrayOf(shape()).isRequired,
+  mediaAssetList: arrayOf(shape()).isRequired,
 };
 
 export default GovCanHelp;

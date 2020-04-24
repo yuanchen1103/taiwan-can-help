@@ -55,15 +55,16 @@ $green: #0CCDA3;
 }
 
 .govCanHelpBackground {
-    height: 270px;
-    width: 150vw;
-    margin-left: -25vw;
-    background: transparent linear-gradient(247deg, $green 0%, #C1FCD3 100%) 0% 0% no-repeat padding-box;
+    width: 120vw;
+    height: auto;
+    margin-left: -10vw;
     @media (min-width: 768px) {
         width: 100%;
-        max-width: 827px;
-        height: 580px;
         margin: 0;
+    }
+    & img {
+        height: auto;
+        width: 100%;
     }
 }
 
@@ -79,6 +80,11 @@ $green: #0CCDA3;
     background: #DBDBDB;
     width: 100%;
     height: 270px;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .card {
