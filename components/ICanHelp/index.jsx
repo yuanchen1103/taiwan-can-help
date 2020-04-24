@@ -19,6 +19,7 @@ const ICanHelp = ({ icanAssetList = [] }) => {
         <Swiper
           pagination={{
             el: '.swiper-pagination',
+            clickable: true,
           }}
           slidesPerView={3}
           spaceBetween={15}
