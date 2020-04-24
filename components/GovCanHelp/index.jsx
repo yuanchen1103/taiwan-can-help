@@ -112,11 +112,13 @@ const MediaAssetList = ({ mediaAssetList = [] }) => {
   return (
     <div className="container">
       <div className={`d-flex align-items-center justify-content-center ${styles.mediaAssetContainer}`}>
-        <FlipMove className={styles.width100}>
-          {assetList.map((mediaAsset, index) => index < 4 && (
-            <MediaAsset key={mediaAsset.key} mediaAsset={mediaAsset} />
-          ))}
-        </FlipMove>
+        <div className={styles.mediaAssetFlipMove}>
+          <FlipMove className={`${styles.width100}`}>
+            {assetList.map((mediaAsset, index) => index < 4 && (
+              <MediaAsset key={mediaAsset.key} mediaAsset={mediaAsset} />
+            ))}
+          </FlipMove>
+        </div>
       </div>
     </div>
   );
