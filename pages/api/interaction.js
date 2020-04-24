@@ -11,6 +11,7 @@ const interactionKey = process.env.NODE_ENV === 'production'
 
 handler.get(async (req, res) => {
   const val = await req.redisGet(interactionKey);
+  req.redisClient.quit();
   res.json({
     value: parseInt(val, 10) || 0,
   });
@@ -20,6 +21,7 @@ handler.post(async (req, res) => {
   const val = await req.redisGet(interactionKey);
   const setValue = val ? parseInt(val, 10) + 1 : 1;
   await req.redisSet(interactionKey, setValue);
+  req.redisClient.quit();
   res.json({
     message: 'success',
     value: setValue,

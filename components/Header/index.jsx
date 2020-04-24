@@ -12,6 +12,7 @@ const Header = () => {
       <link rel="stylesheet" href="/styles/tooltip.css" />
       <link rel="stylesheet" href="/styles/grid.css" />
       <link rel="stylesheet" href="/styles/swiper.css" />
+      <link rel="stylesheet" href="/styles/animate.css" />
       <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cb3e923af393d81" />
     </Head>
   );

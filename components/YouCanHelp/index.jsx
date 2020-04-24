@@ -1,23 +1,12 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
+import { number } from 'prop-types';
 import numFormatter from '@/utils/numFormatter';
-import getter from '@/utils/getter';
 import poster from '@/utils/poster';
 import styles from './YouCanHelp.scss';
 
 
-const YouCanHelp = () => {
-  const [count, setCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    getter('/api/interaction').then((data) => {
-      setCount(data.value);
-      setIsLoading(false);
-    }).catch(() => {
-      setIsLoading(false);
-    });
-  }, []);
-
-  const [clickCount, setClickCount] = useState(0);
+const YouCanHelp = ({ interactionCount }) => {
+  const [clickCount, setClickCount] = useState(interactionCount);
 
   const [showAddOne, setShowAddOne] = useState(false);
 
@@ -40,7 +29,7 @@ const YouCanHelp = () => {
       <div className={styles.buttonWrapper}>
         <button className={styles.roundButton} type="button" onClick={handleOnClick}>
           <img src="/img/mask.svg" alt="mask-icon" />
-          {isLoading ? 'Loading...' : numFormatter(count + clickCount)}
+          {numFormatter(clickCount)}
         </button>
         <span
           className={styles.addOne}
@@ -54,6 +43,10 @@ const YouCanHelp = () => {
       </div>
     </section>
   );
+};
+
+YouCanHelp.propTypes = {
+  interactionCount: number.isRequired,
 };
 
 export default YouCanHelp;

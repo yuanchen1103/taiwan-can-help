@@ -7,9 +7,10 @@ import {
   Graticule,
   Marker,
 } from 'react-simple-maps';
+import { shape } from 'prop-types';
+import thousandComma from '@/utils/thousandComma';
 import styles from './TaiwanIsHelping.scss';
 import geoUrl from './geo.json';
-import thousandComma from '../../utils/thousandComma';
 
 const markers = [
   {
@@ -19,8 +20,8 @@ const markers = [
   },
 ];
 
-// eslint-disable-next-line arrow-body-style
-const TaiwanIsHelping = () => {
+const TaiwanIsHelping = ({ mapData }) => {
+  console.log(mapData);
   return (
     <section className={styles.section}>
       <div className="container">
@@ -85,6 +86,10 @@ const TaiwanIsHelping = () => {
       </div>
     </section>
   );
+};
+
+TaiwanIsHelping.propTypes = {
+  mapData: shape().isRequired,
 };
 
 export default TaiwanIsHelping;

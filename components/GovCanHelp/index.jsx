@@ -146,11 +146,15 @@ const MediaAssetList = () => {
     },
   ];
   const [mediaAssetList, setMediaAssetList] = useState(mockList);
-  useEffect(() => {
-    setInterval(() => {
+  const setintervalAnimation = () => {
+    setTimeout(() => {
       mediaAssetList.push(mediaAssetList.splice(0, 1)[0]);
       setMediaAssetList([...mediaAssetList]);
+      setintervalAnimation();
     }, 3000);
+  };
+  useEffect(() => {
+    setintervalAnimation();
   }, []);
   return (
     <div className="container">

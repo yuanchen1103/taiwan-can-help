@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-unfetch';
+
 export default function poster(url, data) {
   return new Promise((resolve, reject) => {
     fetch(url, {
