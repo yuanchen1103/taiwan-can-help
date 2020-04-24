@@ -130,7 +130,12 @@ $green: #0CCDA3;
     width: 100%;
     line-height: 30px;
     font-size: 18px;
-    color: $lightGrey;
+    & a {
+        color: $lightGrey;
+        &:hover {
+            color: $green;
+        }
+    }
     @media (min-width: 576px) {
         width: 80%;
     }

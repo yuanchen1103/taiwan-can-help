@@ -76,12 +76,14 @@ Carousel.propTypes = {
 
 const MediaAsset = forwardRef(({ mediaAsset }, ref) => (
   <div ref={ref} className={`d-flex ${styles.mediaAsset}`}>
-    <div>
-      {mediaAsset.assetDate}
-      |
-      {mediaAsset.assetOrganization}
-      {mediaAsset.assetContent}
-    </div>
+    <a href={mediaAsset.assetLink} target="_blank" rel="noopener noreferrer">
+      <div>
+        {mediaAsset.assetDate}
+        &nbsp;|&nbsp;
+        {mediaAsset.assetOrganization}
+        {mediaAsset.assetContent}
+      </div>
+    </a>
   </div>
 ));
 
@@ -91,7 +93,11 @@ MediaAsset.propTypes = {
 
 
 const MediaAssetList = ({ mediaAssetList = [] }) => {
-  const addKeyAssetList = mediaAssetList.map((asset, key) => ({ ...asset, key: key.toString() }));
+  const addKeyAssetList = mediaAssetList.map(({ assetDate, ...asset }, key) => ({
+    ...asset,
+    key: key.toString(),
+    assetDate: new Date(assetDate).toLocaleDateString(),
+  }));
   const [assetList, setAssetList] = useState(addKeyAssetList);
   const setintervalAnimation = () => {
     setTimeout(() => {
