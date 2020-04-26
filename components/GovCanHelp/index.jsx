@@ -101,8 +101,10 @@ const MediaAssetList = ({ mediaAssetList = [] }) => {
   const [assetList, setAssetList] = useState(addKeyAssetList);
   const setintervalAnimation = () => {
     setTimeout(() => {
-      assetList.push(assetList.splice(0, 1)[0]);
-      setAssetList([...assetList]);
+      if (document.hasFocus()) {
+        assetList.push(assetList.splice(0, 1)[0]);
+        setAssetList([...assetList]);
+      }
       setintervalAnimation();
     }, 3000);
   };
