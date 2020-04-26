@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { shape, number, arrayOf } from 'prop-types';
+import ReactGA from 'react-ga';
 import absoluteUrl from 'next-absolute-url';
 import { I18nProvider } from '@/i18n/I18nContext';
 import Header from '@/components/Header';
@@ -108,6 +109,10 @@ export default function Index({
   comAssetList,
   icanAssetList,
 }) {
+  useEffect(() => {
+    ReactGA.initialize('UA-158180520-3');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <I18nProvider>
       <Banner />

@@ -25,7 +25,7 @@ const TaiwanIsHelping = ({ mapData }) => {
         <div className="row">
           <div className="col-md-8">
             <h1 className={styles.title}>TAIWAN IS HELPING</h1>
-            <h2 className={styles.subTitle}>臺灣不只可以幫忙，而且正在幫忙</h2>
+            <h2 className={styles.subTitle}>全球健康 臺灣來幫忙</h2>
           </div>
           <div className="col-md-4">
             <div className={styles.infoWrapper}>
