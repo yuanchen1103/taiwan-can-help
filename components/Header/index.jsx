@@ -7,6 +7,16 @@ const Header = () => {
   return (
     <Head>
       <title>{t('header')}</title>
+      <meta property="og:title" content="Taiwan Can Help!" />
+      <meta property="og:description" content="當全球疫情蔓延，臺灣不但妥適控制住疫情，並讓疫情對人民生活的衝擊降到最低。臺灣防疫模式的透明與誠實，提供了民主國家更佳的防疫對策。在此我們分享台灣在政府、企業、個人等各公、私部門的經驗，齊心一同抗疫，向世界傳達 Taiwan can help 的誠摯信念。" />
+      <meta property="og:image" content="/img/privew.png" />
+      <meta property="og:site_name" content="Taiwan Can Help!" />
+      <meta property="og:url" content="https://taiwancan.help" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Taiwan Can Help!" />
+      <meta name="twitter:description" content="當全球疫情蔓延，臺灣不但妥適控制住疫情，並讓疫情對人民生活的衝擊降到最低。臺灣防疫模式的透明與誠實，提供了民主國家更佳的防疫對策。在此我們分享台灣在政府、企業、個人等各公、私部門的經驗，齊心一同抗疫，向世界傳達 Taiwan can help 的誠摯信念。" />
+      <meta name="twitter:image" content="/img/privew.png" />
+      <meta name="twitter:url" content="https://taiwancan.help" />
       <link rel="stylesheet" href="/styles/reset.css" />
       <link rel="stylesheet" href="/styles/index.css" />
       <link rel="stylesheet" href="/styles/tooltip.css" />
