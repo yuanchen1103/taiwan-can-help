@@ -18,12 +18,14 @@ const ComCanHelp = ({ comAssetList = [] }) => {
         <div className="row">
           <div className={`col-12 order-2 col-lg-6 order-lg-1 ${styles.colMarginTop}`}>
             <div className="row">
-              {comAssetList.map((comAsset, index) => (
+              {comAssetList.map((comAsset, index) => index < 4 && (
                 <div className={`col-12 col-sm-6 p-0 ${styles.zIndex1} ${styles.cardBlock}`} key={+index}>
                   <div className={styles.card}>
-                    <div className={styles.cardPhoto} />
-                    <div className={styles.cardTitle}>{comAsset.title}</div>
-                    <div className={styles.cardContent}>{comAsset.content}</div>
+                    <div className={styles.cardPhoto}>
+                      <img src={comAsset.assetPhotoUrl} alt={comAsset.assetOrganization} />
+                    </div>
+                    <div className={styles.cardTitle}>{comAsset.assetOrganization}</div>
+                    <div className={styles.cardContent}>{comAsset.assetContent}</div>
                   </div>
                 </div>
               ))}

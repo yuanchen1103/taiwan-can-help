@@ -57,10 +57,10 @@ const Carousel = ({ govAssetList = [] }) => {
         <a key={index.toString()} href={govAsset.assetLink} target="_blank" rel="noopener noreferrer">
           <div className={`${styles.card}`}>
             <div className={styles.swiperImage}>
-              <img src={govAsset.assetPhotoUrl} alt="govAsset.assetTitle" />
+              <img src={govAsset.assetPhotoUrl} alt={govAsset.assetName} />
             </div>
             <div className={styles.cardBlock}>
-              <div className={styles.cardTitle}>{govAsset.assetTitle}</div>
+              <div className={styles.cardTitle}>{govAsset.assetName}</div>
               <div className={styles.cardSubTitle}>{govAsset.assetIntro}</div>
             </div>
           </div>
