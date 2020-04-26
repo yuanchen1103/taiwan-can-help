@@ -56,9 +56,9 @@ const Carousel = ({ govAssetList = [] }) => {
       {govAssetList.map((govAsset, index) => (
         <a key={index.toString()} href={govAsset.assetLink} target="_blank" rel="noopener noreferrer">
           <div className={`${styles.card}`}>
-            <div className={styles.swiperImage}>
+            {/* <div className={styles.swiperImage}>
               <img src={govAsset.assetPhotoUrl} alt={govAsset.assetName} />
-            </div>
+            </div> */}
             <div className={styles.cardBlock}>
               <div className={styles.cardTitle}>{govAsset.assetName}</div>
               <div className={styles.cardSubTitle}>{govAsset.assetIntro}</div>
@@ -137,7 +137,7 @@ const GovCanHelp = ({ govAssetList = [], mediaAssetList = [] }) => {
           <div className="row">
             <div className="col-12 order-1 col-md-7 order-md-2">
               <div className={styles.govCanHelpBackground}>
-                <img src="/img/gov-can-help-bg.svg" alt="" />
+                <img src="/img/gov-can-help-bg.png" alt="" />
               </div>
             </div>
             <div className="col-12 order-2 col-md-5 order-md-1 d-flex align-items-end flex-wrap">
