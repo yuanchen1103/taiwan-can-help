@@ -13,31 +13,30 @@ const client = new MongoClient(url, {
   try {
     if (!client.isConnected()) await client.connect();
     const db = client.db(process.env.NODE_ENV === 'production' ? 'production' : 'test');
-    // await db.collection('media').drop();
+    // await db.collection('gov').drop();
     const workbook = XLSX.readFile(path.join(__dirname, 'data.xlsx'));
-    const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[1]]);
+    const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[3]]);
     data.forEach((val) => {
-      const utcDays = Math.floor(val.Date - 25569);
-      const utcValue = utcDays * 86400;
       const doc = {
-        assetDate: new Date(utcValue * 1000),
+        assetPhotoUrl: val.PhotoUrl,
         assetLink: val.Link,
       };
       insertDocs.push({
         'zh-TW': {
-          assetContent: val.Content,
-          assetOrganization: val.Organization,
+          assetIntro: val.Intro,
+          assetName: val.Name,
           ...doc,
         },
         'en-US': {
-          assetContent: val.Content,
-          assetOrganization: val.Organization,
+          assetIntro: val.Intro,
+          assetName: val.Name,
           ...doc,
         },
       });
     });
+    insertDocs.splice(0, 1);
     // console.log(insertDocs);
-    await db.collection('media').insertMany(insertDocs);
+    await db.collection('gov').insertMany(insertDocs);
   } catch (e) {
     console.error(e);
   }
