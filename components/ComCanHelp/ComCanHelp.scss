@@ -7,22 +7,13 @@ $grey: #7E7E7E;
     padding-bottom: 50px;
     overflow: hidden;
     position: relative;
-}
-
-// imitate SVG path
-.comCanHelpBackground {
-    position: absolute;
-    left: -10%;
-    top: 260px;
-    width: 120%;
-    height: 870px;
-    @media (min-width: 576px) {
-        height: 956px;
-    }
+    background: url('/img/com-can-help-bg.svg');
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
     @media (min-width: 992px) {
-        top: 0;
-        right: 0;
-        width: 70%;
+        background-position: -10% 0;
+        background-size: contain;
     }
 }
 
@@ -128,5 +119,12 @@ $grey: #7E7E7E;
     color: #707070;
     font-size: 16px;
     line-height: 22px;
+    height: 66px;
     text-align: center;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

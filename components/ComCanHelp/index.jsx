@@ -16,7 +16,7 @@ const ComCanHelp = ({ comAssetList = [] }) => {
   const { t } = useContext(I18nContext);
   const setintervalAnimation = () => {
     setTimeout(() => {
-      assetList.push(...assetList.splice(0, 4));
+      assetList.push(...assetList.splice(0, 1));
       setAssetList([...assetList]);
       setintervalAnimation();
     }, 3000);
@@ -26,9 +26,6 @@ const ComCanHelp = ({ comAssetList = [] }) => {
   }, []);
   return (
     <section className={styles.section}>
-      <div className={styles.comCanHelpBackground}>
-        <img src="/img/com-can-help-bg.svg" alt="" />
-      </div>
       <div className="container">
         <div className="row">
           <div className={`col-12 order-2 col-lg-6 order-lg-1 ${styles.colMarginTop}`}>
