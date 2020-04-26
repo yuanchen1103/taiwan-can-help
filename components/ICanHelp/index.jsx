@@ -30,7 +30,7 @@ const ICanHelp = ({ icanAssetList = [] }) => {
           {icanAssetList.map((icanAsset, index) => (
             <a key={index.toString()} href={icanAsset.assetLink} title={icanAsset.assetName} target="_blank" rel="noopener noreferrer">
               <div className={styles.swiperCard}>
-                <img src={icanAsset.assetPhotoUrl} alt={icanAsset.assetName} />
+                <img src={icanAsset.assetPhotoUrl} alt="" />
               </div>
             </a>
           ))}

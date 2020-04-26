@@ -19,7 +19,7 @@ const ComCanHelp = ({ comAssetList = [] }) => {
       assetList.push(...assetList.splice(0, 1));
       setAssetList([...assetList]);
       setintervalAnimation();
-    }, 3000);
+    }, 6000);
   };
   useEffect(() => {
     setintervalAnimation();
@@ -34,7 +34,7 @@ const ComCanHelp = ({ comAssetList = [] }) => {
                 <div className={`col-12 col-sm-6 p-0 ${styles.zIndex1} ${styles.cardBlock}`} key={comAsset.key}>
                   <div className={styles.card}>
                     <div className={styles.cardPhoto}>
-                      <img src={comAsset.assetPhotoUrl} alt={comAsset.assetOrganization} />
+                      <img src={comAsset.assetPhotoUrl} alt="" />
                     </div>
                     <div className={styles.cardTitle}>{comAsset.assetOrganization}</div>
                     <div className={styles.cardContent}>{comAsset.assetContent}</div>
