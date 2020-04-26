@@ -1,0 +1,59 @@
+$black: #3D3D3D;
+$grey: #7E7E7E;
+
+.section {
+    padding: 50px 0 100px;
+    overflow: hidden;
+}
+
+.title {
+    letter-spacing: 1.35px;
+    color: $black;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    @media (min-width: 576px) {
+        font-size: 54px;
+    }
+}
+
+.desciption {
+    text-align: center;
+    font-weight: lighter;
+    color: $grey;
+    font-size: 18px;
+    line-height: 31px;
+    margin-top: 30px;
+    white-space: break-spaces;
+    @media (min-width: 768px) {
+        font-size: 24px;
+        line-height: 45px;
+        margin-top: 54px;
+    }
+}
+
+.swiperContainer {
+    margin: 109px 0 0 -60vw;
+    width: 220vw;
+    @media (min-width: 992px) {
+        margin: 109px 0 0 -5vw;
+        width: 110vw;
+    }
+}
+
+.swiperCard {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #DBDBDB;
+    height: 171px;
+    @media (min-width: 576px) {
+        height: 328px;
+    }
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
