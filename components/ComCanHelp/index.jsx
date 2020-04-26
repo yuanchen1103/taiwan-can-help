@@ -16,8 +16,10 @@ const ComCanHelp = ({ comAssetList = [] }) => {
   const { t } = useContext(I18nContext);
   const setintervalAnimation = () => {
     setTimeout(() => {
-      assetList.push(...assetList.splice(0, 1));
-      setAssetList([...assetList]);
+      if (document.hasFocus()) {
+        assetList.push(...assetList.splice(0, 1));
+        setAssetList([...assetList]);
+      }
       setintervalAnimation();
     }, 6000);
   };
