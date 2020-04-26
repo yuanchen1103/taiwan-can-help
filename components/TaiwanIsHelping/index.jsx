@@ -42,7 +42,12 @@ const TaiwanIsHelping = ({ mapData }) => {
         </div>
       </div>
       <div className="container-fluid">
-        <ComposableMap>
+        <ComposableMap
+          projectionConfig={{
+            rotate: [-10, 0, 0],
+            scale: 147,
+          }}
+        >
           <Graticule stroke="#F9F9F9" />
           <Geographies
             geography={geoUrl}
