@@ -10,3 +10,14 @@ Here, we share Taiwan's experience on epidemic control in various sectors and le
 - [yuanchen1103](https://github.com/yuanchen1103)
 - [jherkyesse](https://github.com/jherkyesse)
 - [e920528](https://github.com/e920528)
+
+
+## Get Started
+
+At first, use yarn to install needed dependencies.
+
+`yarn`
+
+Then start the dev server.
+
+`yarn dev`
