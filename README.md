@@ -1,25 +1,23 @@
-# API routes with REST
+# Taiwan Can Help
 
-Next.js ships with [API routes](https://github.com/zeit/next.js#api-routes), which provide an easy solution to build your own `API`. This example shows how it can be used to create your [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) api.
+當全球疫情蔓延，臺灣不但妥適控制住疫情，並讓疫情對人民生活的衝擊降到最低。臺灣防疫模式的透明與誠實，提供了民主國家更佳的防疫對策。在此我們分享台灣在政府、企業、個人等各公、私部門的經驗，齊心一同抗疫，向世界傳達 Taiwan can help 的誠摯信念。
 
-## Deploy your own
+"As the COVID-19 continues, Taiwan not only properly controls the epidemic, but also minimizes its negative impact on people’s daily lives. The transparency of Taiwan's epidemic control model demonstrates a paradigm for democratic countries. 
+Here, we share Taiwan's experience on epidemic control in various sectors and levels - government, enterprise, and individual. Let’s work together to fight the epidemic.Taiwan can help the world with its experience. Let’s fight altogether against COVID-19."
 
-Deploy the example using [ZEIT Now](https://zeit.co/now):
+## Contributors
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/yuanchen1103/taiwan-can-help)
+- [yuanchen1103](https://github.com/yuanchen1103)
+- [jherkyesse](https://github.com/jherkyesse)
+- [e920528](https://github.com/e920528)
 
-## How to use
 
-### Using `create-next-app`
+## Get Started
 
-Execute [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+At first, use yarn to install needed dependencies.
 
-```bash
-npm init next-app --example api-routes-rest api-routes-rest-app
-# or
-yarn create next-app --example api-routes-rest api-routes-rest-app
-```
+`yarn`
 
-### Deploy to Now
+Then start the dev server.
 
-Deploy it to the cloud with [ZEIT Now](https://zeit.co/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+`yarn dev`
