@@ -12,7 +12,7 @@
     "classnames": "^2.2.6",
     "i": "^0.3.6",
     "isomorphic-unfetch": "^3.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mongodb": "^3.5.6",
     "next": "latest",
     "next-absolute-url": "^1.2.2",
