@@ -40,6 +40,6 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "xlsx": "^0.15.6"
+    "xlsx": "^0.17.0"
   }
 }
